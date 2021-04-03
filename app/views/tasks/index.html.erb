@@ -1,0 +1,28 @@
+<p>Welcome guest!</p>
+
+<h2><%= @message %><h2/>
+
+<h2>Tasks</h2>
+<p><%= link_to "Add Task", new_task_path %> | <%= link_to "Completed", completed_path %></p>
+
+
+<table>
+<thead>
+<tr>
+  <th>Date</th>
+  <th>Title</th>
+  <th>Next</th>
+  <th></th>
+</tr>
+</thead>
+<tbody>
+<% @tasks.each do |task| %>
+  <tr>
+    <td><%= task.created_at %></td>
+    <td><%= link_to task.title, task_path(task.id) %></td>
+    <td><%= task.next %></td>
+    <td><%= link_to "Done" %> | <%= link_to "Edit", edit_task_path(task.id) %> |  <%= link_to "Delete", task, :data => {:confirm => "Are you sure?"}, :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>

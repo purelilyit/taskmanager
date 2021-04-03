@@ -1,0 +1,21 @@
+<h1>Specific Task display</h1>
+
+
+<h2>Task <%= @task.id %></h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Next</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><%= @task.created_at %></td>
+        <td><%= @task.title %></td>
+        <td><%= @task.next %></td>
+      </tr>
+  </tbody>
+</table>
