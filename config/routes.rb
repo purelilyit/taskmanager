@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts
   resources :tasks
   # get '/tasks/new' => 'tasks#new'
   get '/completed' => 'tasks#done'

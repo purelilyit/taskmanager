@@ -1,5 +1,19 @@
 <h1>Add Task</h1>
 
-<%= form_tag(tasks_path) do %>
-  <%= submit_tag "Send" %>
+
+<%= form_with model: @task do |f| %>
+  <div>
+    <%= f.label :title%>
+    <%= f.text_field :title%>
+  </div>
+
+  <div>
+    <%= f.label :next%>
+    <%= f.text_field :next%>
+  </div>
+
+
+  <div>
+    <%= f.submit "Add"%>
+  </div>
 <% end %>

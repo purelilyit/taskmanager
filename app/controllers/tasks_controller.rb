@@ -9,15 +9,15 @@ class TasksController < ApplicationController
   end
 
   def create
-    # @task = Task.new(Task_params)
-    # if @task.valid?
-    #    @task.save
-    #    redirect_to task_path(@task)
-    # else
-    #    render :new
-    # end
-    render plain: "Form submitted!"
-    # render :edit
+    @task = Task.new(task_params)
+
+    respond_to do |format|
+      if @task.save
+        format.html { redirect_to @task, notice: "Task was successfully added." }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+      end
+    end
   end
 
   def done
@@ -36,5 +36,10 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
+  end
+
+private
+  def task_params
+    params.require(:task).permit(:title, :next)
   end
 end
