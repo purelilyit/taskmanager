@@ -1,0 +1,22 @@
+<h1>Completed Tasks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Next</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @completed_tasks.each do |completed_task| %>
+      <tr>
+        <td><%= completed_task.created_at %></td>
+        <td><%= completed_task.title%></td>
+        <td><%= completed_task.next %></td>
+        <td><%= link_to "Delete", completed_task, :data => {:confirm => "Are you sure?"}, :method => :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
