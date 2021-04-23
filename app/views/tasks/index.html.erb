@@ -21,7 +21,7 @@
     <td><%= task.created_at %></td>
     <td><%= link_to task.title, task_path(task.id) %></td>
     <td><%= task.next %></td>
-    <td><%= link_to "Done", done_task_path(task.id) %> | <%= link_to "Edit", edit_task_path(task.id) %> |  <%= link_to "Delete", task, :data => {:confirm => "Are you sure?"}, :method => :delete %></td>
+    <td><%= link_to "Done", done_task_path(task.id) %> | <%= link_to "Edit", edit_task_path(task.id) %> |  <%= link_to "Delete", task, :data => {:confirm => "Are you sure?"}, :method => :delete, :just_completed_task => 0 %></td>
   </tr>
 <% end %>
 </tbody>

@@ -1,5 +1,7 @@
 class TasksController < ApplicationController
 
+  before_action :finished_task
+
   def index
     @message = "Simple Task Manager App"
     @tasks = Task.all
@@ -22,7 +24,7 @@ class TasksController < ApplicationController
   end
 
   def done
-    @just_completed_task = 0
+    @just_completed_task = 1
 
     @task = Task.find(params[:id])
     # puts ">>>>>>>>>>>>> #{@task.title }"
@@ -67,4 +69,8 @@ class TasksController < ApplicationController
     def task_params
       params.require(:task).permit(:title, :next)
     end
-end
+
+    def finished_task
+      @just_completed_task = 0
+    end
+  end

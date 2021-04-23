@@ -11,7 +11,5 @@ class ApplicationController < ActionController::Base
         format.html { render :index, status: :unprocessable_entity }
       end
     end
-
-    @just_completed_task = 1 #flag needed to avoid redirect_to multiple times issue
   end
 end
